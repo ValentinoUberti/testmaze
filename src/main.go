@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"strconv"
@@ -42,7 +43,9 @@ func main() {
 
 func readArgs(args []string) {
 	if len(args) < 3 {
-		log.Fatalln("Not enough input arguments")
+
+		msg := fmt.Sprintf("%s\n%s", "Not enough input arguments.", "Usage: podman run --rm -v $(pwd):/mnt mytest scripts/run.sh /mnt/testMap1.json 2 \"Knife,Potted Plant\"")
+		log.Fatalln(msg)
 	}
 
 	file = args[0]
